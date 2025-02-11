@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import {Script, console} from "forge-std/Script.sol";
+import {Script} from "forge-std/Script.sol";
 import {Twitter} from "../src/Twitter.sol";
 
-contract CounterScript is Script {
-    
+contract DeployTwitter is Script {
+    function run() external {
+        vm.startBroadcast();
+        new Twitter();
+        vm.stopBroadcast();
+    }
 }
